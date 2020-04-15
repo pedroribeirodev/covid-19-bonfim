@@ -18,7 +18,7 @@ export default function Home() {
   useEffect(() => {
     async function loadNewsApi() {
       const response = await fetch(
-        'http://newsapi.org/v2/top-headlines?country=br&category=health&apiKey=d93ded19ee63433d89c7bb2998259ad9'
+        'https://newsapi.org/v2/top-headlines?country=br&category=health&apiKey=d93ded19ee63433d89c7bb2998259ad9'
       );
       const data = await response.json();
 
