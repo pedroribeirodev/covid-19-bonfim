@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { format } from 'date-fns';
 import { CardNewsList, CardCovid } from './styles';
 
 import Header from '../../components/Header';
@@ -17,7 +17,7 @@ interface Cases {
   city: string;
   confirmed: number;
   date: Date;
-  state: string;
+  deaths: number;
 }
 
 export default function Home() {
@@ -36,7 +36,7 @@ export default function Home() {
 
     loadNewsApi();
   }, []);
-  /* 
+
   useEffect(() => {
     async function loadCovidInfo() {
       const response = await fetch(
@@ -49,19 +49,14 @@ export default function Home() {
     }
 
     loadCovidInfo();
-  }, []); */
+  }, []);
 
   return (
     <>
       <Header title="Informações Bonfim" />
-      {/*       <CardCovid>
-        <h3>Números Covid-19 Bonfim-MG</h3>
+      <CardCovid>
         {cases.map((item) => (
           <li>
-            <span>
-              Estado:
-              {item.state}
-            </span>
             <span>
               Cidade:
               {item.city}
@@ -71,13 +66,16 @@ export default function Home() {
               {item.confirmed}
             </span>
             <span>
+              Número de óbitos:
+              {item.deaths}
+            </span>
+            <span>
               Data atualização:
               {item.date}
             </span>
           </li>
         ))}
       </CardCovid>
-      <h2>Notícias do Covid-19</h2> */}
       <CardNewsList>
         {news.map((item) => (
           <a href={item.url} target="_blank" rel="noopener noreferrer">
