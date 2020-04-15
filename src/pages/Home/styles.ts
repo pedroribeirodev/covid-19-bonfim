@@ -64,3 +64,13 @@ export const CardNewsList = styled.div`
     }
   }
 `;
+
+export const Title = styled.h3`
+  text-align: center;
+  font-weight: bold;
+  margin: 10px 0;
+`;
+
+export const Alert = styled.h5`
+  text-align: center;
+`;

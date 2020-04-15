@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
-import { CardNewsList, CardCovid } from './styles';
+import { CardNewsList, CardCovid, Title, Alert } from './styles';
 
 import Header from '../../components/Header';
 
@@ -54,6 +54,10 @@ export default function Home() {
   return (
     <>
       <Header title="Informações Bonfim" />
+      <Title>
+        Informações baseadas no boletim epidemiológico da Secretaria do Estado
+        de Minas Gerais
+      </Title>
       <CardCovid>
         {cases.map((item) => (
           <li>
@@ -76,6 +80,7 @@ export default function Home() {
           </li>
         ))}
       </CardCovid>
+      <Title>Notícias atualizadas sobre o Covid-19 no Brasil</Title>
       <CardNewsList>
         {news.map((item) => (
           <a href={item.url} target="_blank" rel="noopener noreferrer">
@@ -83,14 +88,17 @@ export default function Home() {
               <img src={item.urlToImage} alt={item.title} />
               <strong>{item.title}</strong>
               <span>{item.description}</span>
+              <span>
+                <b>Ler mais...</b>
+              </span>
             </li>
           </a>
         ))}
       </CardNewsList>
-      <div>
-        Esse site não é um meio de divulgação oficial da Prefeitura Municipal de
-        Bonfim
-      </div>
+      <Alert>
+        ** Esse site não é um meio de divulgação oficial da Prefeitura Municipal
+        de Bonfim
+      </Alert>
     </>
   );
 }
