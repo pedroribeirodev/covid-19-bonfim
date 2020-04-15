@@ -8,6 +8,11 @@ export const CardCovid = styled.div`
     justify-content: space-around;
     max-width: 1020px;
     width: 100%;
+    @media screen and (max-width: 720px) {
+      flex-direction: column;
+      width: 200px;
+      text-align: center;
+    }
     > span {
       border-radius: 4px;
       padding: 20px;
